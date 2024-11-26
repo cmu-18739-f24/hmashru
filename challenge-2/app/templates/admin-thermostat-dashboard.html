@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thermostat Admin Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .dashboard {
+            background: #fff;
+            width: 80%;
+            max-width: 800px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            border-radius: 8px;
+        }
+        h1 {
+            font-size: 24px;
+            text-align: center;
+            color: #333;
+        }
+        .section {
+            margin-top: 20px;
+        }
+        .section h2 {
+            font-size: 20px;
+            color: #333;
+        }
+        .temperature-display {
+            font-size: 48px;
+            text-align: center;
+            color: #ff5722;
+        }
+        .controls {
+            margin-top: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .controls button {
+            padding: 10px 15px;
+            font-size: 16px;
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .status-indicator {
+            padding: 10px;
+            font-weight: bold;
+            border-radius: 5px;
+            color: white;
+        }
+        .status-on { background-color: #4caf50; }
+        .status-off { background-color: #f44336; }
+    </style>
+</head>
+<body>
+<div>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        {% for message in messages %}
+        <p style="color: red;">{{ message }}</p>
+        {% endfor %}
+    {% endif %}
+    {% endwith %}
+</div>
+
+<div class="dashboard">
+    <h1>Thermostat Admin Dashboard</h1>
+
+    <!-- Current Temperature Section -->
+    <div class="section">
+        <h2>Current Temperature in Celcius</h2>
+        <div class="temperature-display">{{temp}}</div>
+    </div>
+
+    <!-- Get me to 69 for a special surprise -->
+    <div class="section controls">
+        <h2>Set Target Temperature</h2>
+        <form id="temperatureForm" action="/admin-thermostat-dashboard" method="POST">
+            <input type="int" name="target_temp" value="1" id="target-temp">
+            <button type="submit">Set Temperature</button>
+        </form>
+    </div>
+
+    <!-- Device Status Section -->
+    <div class="section status">
+        <h2>Device Status</h2>
+        <div id="status" class="status-indicator status-on">ON</div>
+    </div>
+</div>
+
+</body>
+</html>
