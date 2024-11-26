@@ -1,35 +1,34 @@
-# keychain-mayhem
+# Keychain Mayhem
 
 - Namespace: picoctf/18739f24
 - Type: custom
 - Category: Web Exploitation
 - Points: 1
-- Templable: no
+- Templatable: no
 - MaxUsers: 1
 
 ## Description
 
-Please add me
+I love certain things and abide by them.
 
 ## Details
 
-You can access the webservice at {{link_as("port", "/", "here")}}
-
-Please add me, including files you want a user to see.
-
+Know me and use them to get the flag!
+Find my first login page {{link_as('/', 'here')}}
 
 ## Hints
 
-- Hint 1
-- Hint 2
-
+- Try to find me online
 
 ## Solution Overview
 
 - Navigate to the login page
 - Get in to find information about the developer and their interests
+- Find the correct public key
 - Send encrypted commands
 
 ## Attributes
 
 - author: hmashru
+- organization: CMU
+- event: 18739D picoCTF Problem Development

@@ -1,1 +1,1 @@
-K3ych@1n_M@yh3m
+picoCTF{K3ych@1n_M@yh3m}

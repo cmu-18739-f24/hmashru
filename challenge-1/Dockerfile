@@ -9,8 +9,6 @@ RUN apt-get update && apt-get install -y python3 python3-pip sqlite3 vim gnupg
 
 COPY toberndo_private.key /root/private.key
 COPY toberndo_public.key /root/public.key
-
-# (dbrumley): I don't see where flag.txt is used in the solution
 COPY flag.txt /root/flag.txt
 
 # Install Flask
@@ -26,7 +24,6 @@ COPY ./app .
 
 RUN gpg --import /root/private.key && \
     gpg --import /root/public.key
-
 
 # Only root can see. Needed for picoctf, and how it knows the right flag.
 RUN mkdir /challenge && chmod 700 /challenge
